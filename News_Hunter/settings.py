@@ -26,7 +26,7 @@ SECRET_KEY = 'mhariuheo!gku_6$l3ryhsrji@m(z&z65@-9)b2)gwl)c00b7y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["gerakushal.pythonanywhere.com",]
+ALLOWED_HOSTS = ['gerakushal.pythonanywhere.com']
 
 
 # Application definition
