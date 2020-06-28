@@ -1,0 +1,69 @@
+.nav-link{
+  color: #000!important;
+}
+.nav-link:hover{
+  font-weight: bolder;
+}
+body, .jumbotron{
+  background-color: #F1F3F4!important;
+}
+h5{
+  font-family: 'PT Sans', sans-serif;
+  font-size: 1.2rem;
+}
+p{
+  font-family: 'PT Sans', sans-serif;
+  line-height: 1.2rem;
+  font-size: 1rem;
+}
+.card{
+  height: 450px!important;
+  overflow: hidden;
+}
+.card-text{
+  text-overflow: ellipsis;
+  max-height: 80px!important;
+  overflow: hidden;
+}
+.card:hover{
+  transform: translateY(-10px);
+  transition-duration: 0.2s;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+}
+.date_box{
+  width: 120px;
+  height: 30px;
+  display: inline;
+  position: absolute;
+
+  background: #f2f3f4;
+  padding: 5px 5px;
+  border-radius: 100px;
+  text-align: center;
+
+  top: 165px;
+  right: 5px;
+}
+.date_box p{
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+i{
+  float: left;
+  margin-top: 2px;
+}
+#bookmark{
+  float: right!important;
+  display: inline;
+  margin-top: 5px;
+  margin-right: 10px ;
+  color: red;
+}
+#writer{
+  top: 175px;
+  left: 5px;
+  color: white;
+  font-weight: bold;
+
+  position: absolute!important;
+}
