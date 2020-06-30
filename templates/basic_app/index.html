@@ -5,28 +5,26 @@
   Home Page
 {% endblock %}
 
+<!-- api = "https://newsapi.org/v2/top-headlines?country=us&apiKey=cb9951ac79724fe7a06b2c30afb1d831" -->
 {% block body_block %}
 
-<!-- api = "https://newsapi.org/v2/top-headlines?country=us&apiKey=cb9951ac79724fe7a06b2c30afb1d831" -->
-
-  <div class="jumbotron mt-2 p-0">
-
+  <div class="jumbotron mt-2 p-0 mb-1">
     {% if newsItemList %}
 
-    <h4 class="pt-4">Get Latest Updates:</h4>
+    <h4 class="pt-2">Get Latest Updates:</h4>
     <hr>
 
     <div class="row">
       {% for i in newsItemList %}
 
-        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-12 mx-auto">
+        <div class="col-lg-4 col-md-6 col-xs-10 mx-auto">
           <div class="card mt-2 mb-2" style=" border-radius:10px;">
 
             <img src="{{ i.img_url }}" class="card-img-top" alt=""
             style="width:auto!important; height:200px; border-top-right-radius:10px; border-top-left-radius:10px;">
 
             <div class="date_box">
-              <p>{{ i.date }}<i class="fa fa-calendar-o"></i></p>
+              <p>{{ i.date }}<i class="fa fa-calendar"></i></p>
             </div>
 
             <p id="writer">{{ i.writer }}</p>
@@ -37,15 +35,23 @@
             </div>
 
             <p class="ml-3"><strong>{{ i.author }}<i id="bookmark" class="fa fa-bookmark"></i></strong></p>
+            <a href="{% url "basic_app:detail" id=i.id %}" class="stretched-link"></a>
 
           </div>
         </div>
-
       {% endfor %}
+
+      <p class="btn btn-dark btn-block mt-4 mb-0">Copyright (c) 2018 Copyright Holder All Rights Reserved.</p>
+
     </div>
 
     {% else %}
-      <h3>No data Available</h3>
+      <div class="text-center my-auto">
+        <div class="cards mt-5">
+          <img src="{% static 'images/err.png' %}" alt="Error" width=80% style="border-radius:10px" >
+          <h1 class="card-title mt-4">Page Not Found</h1>
+        </div>
+      </div>
     {% endif %}
 
 

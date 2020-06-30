@@ -5,6 +5,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f74f54">
     <title>
       {% block title %} None {% endblock %}
     </title>
@@ -18,12 +19,12 @@
   <body>
 
   <nav class="navbar navbar-expand-sm navbar-light sticky-top" style="background-color:#f74f54;">
+    <a class="navbar-brand" href="{% url "basic_app:index" %}">
+      <img src="{% static 'images/logo_news_hunter.png' %}" alt="" class="mr-2 mb-1" width="30">News Hunter</a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <a class="navbar-brand" href="{% url "basic_app:index" %}">
-      <img src="{% static 'images/logo_news_hunter.png' %}" alt="" class="mr-2 mb-1" width="30">News Hunter</a>
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
@@ -34,7 +35,8 @@
           <a class="nav-link" href="{% url "basic_app:next" %}">Next</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url "basic_app:settings" %}">Settings</a>
+          <a class="nav-link" href="https://drive.google.com/file/d/1CZVBi9f3cagu_ZxaWSqj_YkZtR-7jtUi/view?usp=drivesdk">
+            Get App</a>
         </li>
       </ul>
     </div>

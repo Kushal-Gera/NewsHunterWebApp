@@ -1,0 +1,48 @@
+{% extends "basic_app/base.html" %}
+{% block title %} Detail {% endblock %}
+
+{% load static %}
+
+{% block body_block %}
+
+  {% if newsItemList %}
+    <div class="row text-center mt-3">
+
+      <div class="col-lg-6 col-12">
+        <img src="{{ newsItemList.img_url }}" alt="Image Not Available"
+          style="border-radius:10px;" width="100%" height="auto">
+
+        <div class="row justify-content-around mt-4 mb-3">
+          <div class="col-xs-10 text-center my-auto"
+           style="background-color: #F06292; border-radius:5px; padding: 5px 8px; height:30px; color:white;">
+            <p style="font-weight:lighter; font-size:0.8rem"> {{ newsItemList.writer }}</p>
+          </div>
+          <div class="date_box col-xs-10" style="position:relative!important; top:0; right:0">
+            <p>{{ newsItemList.date }}<i class="fa fa-calendar"></i></p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-lg-6 col-12 text-left mb-4">
+        <h3>{{ newsItemList.title }} </h3>
+        <hr>
+        <h5 style="margin-top:30px">{{ newsItemList.desc }} <br><br> {{ newsItemList.full }}</h5>
+        <hr>
+        <a href="{{ newsItemList.link }}" class="btn btn-link btn-block mt-3" style="color:#F74F54;">
+          Read More</a>
+      </div>
+
+    </div>
+  {% else %}
+    <div class="text-center my-auto">
+      <div class="cards mt-5">
+        <img style="border-radius:10px" src="{% static 'images/err.png' %}" alt="Error Occured" width=80%>
+        <h1 class="card-title mt-4">Page Not Found</h1>
+      </div>
+    </div>
+
+  {% endif %}
+
+
+{% endblock %}
