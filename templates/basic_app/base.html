@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#f74f54">
     <title>
-      {% block title %} None {% endblock %}
+      {% block title %} Base {% endblock %}
     </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans" rel="stylesheet">
@@ -20,7 +20,8 @@
 
   <nav class="navbar navbar-expand-sm navbar-light sticky-top" style="background-color:#f74f54;">
     <a class="navbar-brand" href="{% url "basic_app:index" %}">
-      <img src="{% static 'images/logo_news_hunter.png' %}" alt="" class="mr-2 mb-1" width="30">News Hunter</a>
+      <img src="{% static "images/logo_news_hunter.png" %}" class="mr-2 mb-1" width="30">
+    News Hunter</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
@@ -28,11 +29,17 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
+        {% block search %}
+        <!-- PASTE THIS CODE IN TEMPLATES ONLY WHERE SEARCH BOX IS NEEDED
+          <li class="nav-item mt-sm-0  mr-1 mt-2">
+            <form method="GET" class="form-inline" autocomplete="off">
+              <input  class="form-control" type="search" placeholder="Search News..." name="q" >
+            </form>
+          </li>
+        -->
+        {% endblock %}
+        <li class="nav-item mt-sm-0 mt-2">
           <a class="nav-link" href="{% url "admin:index" %}">Admin</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url "basic_app:next" %}">Next</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="https://drive.google.com/file/d/1CZVBi9f3cagu_ZxaWSqj_YkZtR-7jtUi/view?usp=drivesdk">

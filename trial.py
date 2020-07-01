@@ -12,12 +12,25 @@ desc_list = []
 title_list = []
 articles = {"articles" : {"title_list":title_list, "desc_list":desc_list}}
 
-for i in data["articles"]:
-    articles["articles"]["title_list"].append(i["title"])
-    articles["articles"]["desc_list"].append(i["description"])
+# for i in data["articles"]:
+    # articles["articles"]["title_list"].append(i["title"])
+    # articles["articles"]["desc_list"].append(i["description"])
 
-length = len(articles["articles"]["title_list"])
+# length = len(articles["articles"]["title_list"])
 
-for a in range(length):
-    print(articles["articles"]["title_list"][a])
-    print("**********************")
+kushal = "kushal"
+x = 5
+
+def fun():
+    global kushal,x
+    kushal = "hey"
+    x = 6
+
+print(kushal)
+fun()
+print("**********************")
+print(kushal, x)
+
+# for a in range(length):
+    # print(articles["articles"]["title_list"][a])
+    # print("**********************")
