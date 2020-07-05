@@ -6,8 +6,11 @@
 
 {% block search %}
   <li class="nav-item mt-sm-0  mr-1 mt-2">
-    <form method="GET" class="form-inline" autocomplete="off">
-      <input  class="form-control" type="search" placeholder="Search News..." name="q" >
+    <!-- add action="variable" => to go to ...url.../variable?q="...query..." -->
+    <form method="POST" class="form-inline" autocomplete="off">
+      {% csrf_token %}
+      <input  class="form-control" type="search"
+        placeholder="Search News..." name="q" value="{{ request.POST.q }}">
     </form>
   </li>
 {% endblock %}

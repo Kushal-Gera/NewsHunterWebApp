@@ -5,24 +5,23 @@ from basic_app.models import NewsItem
 
 # Create your views here.
 link = "https://newsapi.org/v2/top-headlines?country=us&apiKey=cb9951ac79724fe7a06b2c30afb1d831"
-search_link = "http://newsapi.org/v2/everything?q=corona&apiKey=cb9951ac79724fe7a06b2c30afb1d831"
 request_txt = ""
 data = {}
 newsItemList = []
 
-def index(request):
-    global request_txt, data, link
 
-    if request.GET: #temporaily changing link to query
-        query = str(request.GET['q'])
+def index(request):
+    global request_txt, data, link, newsItemList
+    newsItemList.clear()
+    l = 0
+
+    if request.POST: #temporaily changing link to query
+        query = str(request.POST['q'])
         if query:
             link = "http://newsapi.org/v2/everything?q=" + query + "&apiKey=cb9951ac79724fe7a06b2c30afb1d831"
 
     request_txt = requests.get(link).text
     data = json.loads(request_txt)
-
-    newsItemList.clear()
-    l = 0
 
     for i in data["articles"]:
         item = NewsItem()
@@ -32,6 +31,7 @@ def index(request):
         item.full = ""
         if i["content"]:
             item.full = i["content"].split('[')[0]
+
         img_url = i["urlToImage"]
         if not img_url:
             item.img_url = "https://activated-europe.com/app/uploads/2016/12/the-sand-clock.jpg"
@@ -42,11 +42,11 @@ def index(request):
         item.link = i["url"]
         item.author = i["source"]["name"]
         item.date = i["publishedAt"].split('T')[0]
-        item.writer = str(i["author"])[0:20]
+        item.writer = str(i["author"])[:20]
 
         newsItemList.append(item)
         l += 1
-        
+
     #setting link back to original one !!
     link = "https://newsapi.org/v2/top-headlines?country=us&apiKey=cb9951ac79724fe7a06b2c30afb1d831"
     return render(request, "basic_app/index.html", {"newsItemList":newsItemList})

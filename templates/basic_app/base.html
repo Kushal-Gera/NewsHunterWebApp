@@ -10,7 +10,6 @@
       {% block title %} Base {% endblock %}
     </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static "css/helper.css" %}">
@@ -33,7 +32,8 @@
         <!-- PASTE THIS CODE IN TEMPLATES ONLY WHERE SEARCH BOX IS NEEDED
           <li class="nav-item mt-sm-0  mr-1 mt-2">
             <form method="GET" class="form-inline" autocomplete="off">
-              <input  class="form-control" type="search" placeholder="Search News..." name="q" >
+              <input  class="form-control" type="search"
+                placeholder="Search News..." name="q" value="{{ request.GET.q }}">
             </form>
           </li>
         -->
@@ -54,7 +54,6 @@
 
     {% endblock %}
   </div>
-
 
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
