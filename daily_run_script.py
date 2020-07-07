@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 from firebase import firebase
 import smtplib
+import logging
 
 
 def check_price(url, target_price):
@@ -39,9 +40,8 @@ def check_price(url, target_price):
 
         price_item = soup.find(id="priceblock_ourprice")
         if price_item:
-            price = price_item.get_text().strip()[1:].strip()
-            return price <= target_price
-            break;
+            price = price_item.get_text().strip()[1:].strip().replace(',', "").split('.')[0]
+            return (price <= target_price)
 
     return 0
 
@@ -57,7 +57,6 @@ def send_email(data_dict):
 
     print("sending email....")
 
-    # message = "Subject:{Subject}" + "/n/n" + {body}
     message = "Subject:"+data_dict["product_name"]+" price has fell down !!" + "\n\n" + "Price for \""+data_dict["product_name"]+"\" has reached below your target price of \"" + data_dict["target_price"] + "\"!! \n\nClick the link below to buy now," + "\n\n" + data_dict["product_url"]
 
     SERVER.sendmail(SENDER_EMAIL, data_dict["your_email"], message)
